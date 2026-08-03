@@ -35,7 +35,6 @@
   a{color:inherit;}
   img,svg{display:block; max-width:100%;}
   .wrap{max-width:1120px; margin:0 auto; padding:0 32px;}
-
   /* ---------- NAV ---------- */
   nav{
     position:sticky; top:0; z-index:50;
@@ -48,13 +47,11 @@
     height:76px;
   }
   .brand{
-    font-family:var(--display);
-    font-weight:600;
-    font-size:1.3rem;
-    letter-spacing:-0.01em;
     display:flex; align-items:center; gap:10px;
   }
-  .brand-mark{width:22px; height:22px; flex:none;}
+  .brand-logo{
+    height:38px; width:auto; flex:none;
+  }
   .live-pill{
     display:inline-flex; align-items:center; gap:6px;
     font-family:var(--mono); font-size:0.68rem; letter-spacing:0.06em;
@@ -73,7 +70,6 @@
     transition:background .2s ease;
   }
   .nav-cta:hover{background:var(--mint-deep);}
-
   /* ---------- HERO ---------- */
   header.hero{
     position:relative;
@@ -128,7 +124,6 @@
     transition:border-color .2s ease, background .2s ease;
   }
   .btn-ghost:hover{border-color:rgba(247,250,248,0.6); background:rgba(247,250,248,0.06);}
-
   /* breathing visual */
   .breathe-stage{
     position:relative;
@@ -156,42 +151,35 @@
     width: 250px;
     height: 250px;
   }
-
   .air-red, .air-blue {
     stroke-dasharray: 15;
     stroke-dashoffset: 30;
     stroke-linecap: round;
     opacity: 0;
   }
-
   .air-red {
     animation: flow-in 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
   }
-
   .air-blue {
     animation: flow-in 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
     animation-delay: 1.2s; 
   }
-
   @keyframes flow-in {
     0% { stroke-dashoffset: 30; opacity: 0; }
     30% { opacity: 1; }
     70% { opacity: 1; }
     100% { stroke-dashoffset: 0; opacity: 0; }
   }
-
   .lung-pulse {
     transform-origin: 160px 180px;
     animation: lung-breathe 3s infinite ease-in-out;
     animation-delay: 1.2s;
   }
-
   @keyframes lung-breathe {
     0% { transform: scale(0.9); opacity: 0.2; }
     50% { transform: scale(1.1); opacity: 0.8; }
     100% { transform: scale(0.9); opacity: 0.2; }
   }
-
   .breath-label{
     position:absolute; bottom:6px; left:50%; transform:translateX(-50%);
     font-family:var(--mono); font-size:0.7rem; letter-spacing:0.08em;
@@ -201,7 +189,6 @@
   @media (prefers-reduced-motion: reduce){
     .ring, .live-pill .dot{animation:none;}
   }
-
   /* ---------- SECTIONS ---------- */
   section{padding:96px 0;}
   .section-head{max-width:640px; margin-bottom:56px;}
@@ -215,7 +202,6 @@
     letter-spacing:-0.01em;
   }
   .section-head p{color:var(--slate); margin-top:14px; font-size:1.02rem; max-width:52ch;}
-
   /* problem strip */
   .problem{background:var(--ink); color:var(--paper);}
   .problem .wrap{display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center;}
@@ -236,7 +222,6 @@
   @media (prefers-reduced-motion: reduce){
     .gauge-needle{animation:none;}
   }
-
   /* how it works */
   .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
   .step-card{
@@ -254,7 +239,6 @@
   .spin-slow{animation:spin 3.2s linear infinite;}
   @keyframes spin{to{transform:rotate(360deg);}}
   @media (prefers-reduced-motion: reduce){.spin-slow{animation:none;}}
-
   /* filtration */
   .filtration{background:var(--paper-dim);}
   .filt-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
@@ -275,7 +259,6 @@
   }
   .filt-note svg{width:20px; height:20px; color:var(--amber); flex:none; margin-top:2px;}
   .filt-note p{font-size:0.9rem; color:var(--slate);}
-
   .layer-diagram{display:flex; align-items:center; justify-content:center; height:340px;}
   .ld-label{font-family:var(--mono); font-size:11px; fill:var(--slate);}
   .ld-tag-text{font-family:var(--mono); font-size:11px; letter-spacing:0.08em; fill:var(--mint-deep);}
@@ -285,7 +268,6 @@
   @keyframes dot-fall{0%{transform:translateY(-6px); opacity:0;} 20%{opacity:1;} 100%{transform:translateY(90px); opacity:0;}}
   @keyframes dot-rise{0%{transform:translateY(10px); opacity:0;} 25%{opacity:1;} 100%{transform:translateY(-70px); opacity:0;}}
   @media (prefers-reduced-motion: reduce){.ld-dot{animation:none; opacity:0.8;}}
-
   /* built to move */
   .move .wrap{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;}
   .battery-card{
@@ -304,7 +286,6 @@
     font-size:0.78rem; color:var(--mint-deep); background:var(--tint);
     border:1px solid rgba(47,191,159,0.25); border-radius:20px; padding:5px 11px;
   }
-
   /* CTA / contact */
   .cta{
     background:linear-gradient(160deg,#163A32,var(--ink));
@@ -317,19 +298,16 @@
   .mail-line{
     margin-top:28px; font-family:var(--mono); font-size:0.95rem; color:var(--mint);
   }
-
   footer{
     padding:32px 0; border-top:1px solid var(--line);
     color:var(--slate); font-size:0.84rem;
   }
   footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
-
   .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease;}
   .reveal.in{opacity:1; transform:translateY(0);}
   @media (prefers-reduced-motion: reduce){
     .reveal{opacity:1; transform:none; transition:none;}
   }
-
   @media (max-width:860px){
     .hero .wrap{grid-template-columns:1fr;}
     .breathe-stage{height:320px; order:-1;}
@@ -340,12 +318,10 @@
 </style>
 </head>
 <body>
-
 <nav>
   <div class="wrap">
     <div class="brand">
-      <svg class="brand-mark" viewBox="0 0 24 24" fill="none"><path d="M4 15.5C4 9 7.5 5 12 5s8 4 8 10.5c0 2-1.8 3.2-4 3.2-1.4 0-1.6-1.2-4-1.2s-2.6 1.2-4 1.2c-2.2 0-4-1.2-4-3.2z" stroke="#2FBF9F" stroke-width="1.5"/><path d="M6.5 12h11M6.8 14.7h10.4" stroke="#2FBF9F" stroke-width="1.1" stroke-linecap="round"/><circle cx="12" cy="10.4" r="1.5" fill="#2FBF9F"/></svg>
-      The Airflow
+      <img class="brand-logo" src="assets/tagline_copy.png" alt="The Airflow logo">
     </div>
     <div style="display:flex; align-items:center; gap:18px;">
       <span class="live-pill"><span class="dot"></span>Live soon</span>
@@ -353,7 +329,6 @@
     </div>
   </div>
 </nav>
-
 <header class="hero">
   <div class="wrap">
     <div>
@@ -383,29 +358,24 @@
           <path d="M 98 135 C 88 155 88 185 98 205 C 108 210 125 210 130 200 C 135 180 135 155 125 135 C 115 130 105 130 98 135 Z" 
                 fill="#2FBF9F" opacity="0.85" />
           <path d="M 108 170 L 120 170" stroke="#0E211D" stroke-width="3" stroke-linecap="round" />
-
           <!-- Outside Polluted Air (Red/Amber matching your palette) -->
           <path class="air-red" d="M 20 145 Q 60 140 85 155" fill="none" stroke="#E2603A" stroke-width="4" />
           <path class="air-red" d="M 10 170 Q 50 170 80 170" fill="none" stroke="#E2603A" stroke-width="4" />
           <path class="air-red" d="M 20 195 Q 60 200 85 185" fill="none" stroke="#E2603A" stroke-width="4" />
-
           <!-- Inside Clean Air (Mint matching your palette) -->
           <path class="air-blue" d="M 125 155 Q 150 160 155 180" fill="none" stroke="#E3F4EF" stroke-width="3" />
           <path class="air-blue" d="M 125 170 Q 155 170 160 190" fill="none" stroke="#E3F4EF" stroke-width="3" />
           <path class="air-blue" d="M 125 185 Q 150 180 155 200" fill="none" stroke="#E3F4EF" stroke-width="3" />
-
           <!-- Lung/Breath Indicator -->
           <circle cx="160" cy="200" r="18" fill="none" stroke="#2FBF9F" stroke-width="2" class="lung-pulse" />
           <circle cx="160" cy="200" r="8" fill="#2FBF9F" opacity="0.3" class="lung-pulse" />
           
         </svg>
       </div>
-
       <div class="breath-label">Every breath, met with fresh air</div>
     </div>
   </div>
 </header>
-
 <section class="problem reveal">
   <div class="wrap">
     <div>
@@ -445,7 +415,6 @@
     </div>
   </div>
 </section>
-
 <section id="how-it-works" class="reveal">
   <div class="wrap">
     <div class="section-head">
@@ -478,7 +447,6 @@
     </div>
   </div>
 </section>
-
 <section class="filtration reveal">
   <div class="wrap filt-grid">
     <div>
@@ -512,13 +480,10 @@
         <g class="ld-dot" style="animation-delay:0s"><circle cx="30" cy="70" r="4" fill="#E8A33D"/></g>
         <g class="ld-dot" style="animation-delay:0.6s"><circle cx="30" cy="140" r="4" fill="#E8A33D"/></g>
         <g class="ld-dot" style="animation-delay:1.2s"><circle cx="30" cy="210" r="4" fill="#E8A33D"/></g>
-
         <rect x="90" y="30" width="60" height="240" rx="14" fill="#FFFFFF" stroke="#DCE6E2" stroke-width="1.5"/>
         <text x="120" y="150" text-anchor="middle" class="ld-tag-text" transform="rotate(-90 120 150)">N95 LAYER</text>
-
         <rect x="170" y="30" width="60" height="240" rx="14" fill="#0E211D"/>
         <text x="200" y="150" text-anchor="middle" class="ld-tag-text ld-tag-light" transform="rotate(-90 200 150)">CARBON LAYER</text>
-
         <line x1="270" y1="46" x2="270" y2="254" stroke="#2FBF9F" stroke-width="1.5"/>
         <g class="ld-dot ld-clean" style="animation-delay:0.3s"><circle cx="270" cy="90" r="3.5" fill="#2FBF9F"/></g>
         <g class="ld-dot ld-clean" style="animation-delay:0.9s"><circle cx="270" cy="160" r="3.5" fill="#2FBF9F"/></g>
@@ -528,7 +493,6 @@
       </div>
   </div>
 </section>
-
 <section class="move reveal">
   <div class="wrap">
     <div>
@@ -586,27 +550,24 @@
     </div>
   </div>
 </section>
-
 <section class="cta reveal" id="contact">
   <div class="wrap">
     <span class="kicker" style="color:var(--mint);">Live soon</span>
     <h2 style="margin-top:10px;">We're finishing up before launch.</h2>
     <p>Leave us a note and we'll reach out the moment The Airflow is ready.</p>
     <div class="cta-actions">
-      <a class="btn-primary" href="mailto:thejiteshyadav@gmail.com">Get notified</a>
-      <a class="btn-ghost" href="mailto:thejiteshyadav@gmail.com">Contact us</a>
+      <a class="btn-primary" href="mailto:theairflow@outlook.com">Get notified</a>
+      <a class="btn-ghost" href="mailto:theairflow@outlook.com">Contact us</a>
     </div>
-    <div class="mail-line">thejiteshyadav@gmail.com</div>
+    <div class="mail-line">theairflow@outlook.com</div>
   </div>
 </section>
-
 <footer>
   <div class="wrap">
     <span>© 2026 The Airflow. All rights reserved.</span>
     <span>theairflow.in</span>
   </div>
 </footer>
-
 <script>
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
