@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Airflow: Air that adjusts to how you breathe</title>
+<link rel="icon" type="image/png" href="assets/A.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -22,6 +23,8 @@
     --display: 'Fraunces', serif;
     --body: 'Inter', sans-serif;
     --mono: 'IBM Plex Mono', monospace;
+    --brand-navy:#0A2647;
+    --brand-blue:#1E7FE0;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
@@ -38,7 +41,7 @@
   /* ---------- NAV ---------- */
   nav{
     position:sticky; top:0; z-index:50;
-    background:rgba(247,250,248,0.88);
+    background:rgba(247,250,248,0.92);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
@@ -47,10 +50,25 @@
     height:76px;
   }
   .brand{
-    display:flex; align-items:center; gap:10px;
+    display:flex; align-items:center; gap:16px;
   }
   .brand-logo{
-    height:100px; width:auto; flex:none;
+    height:48px; width:auto; flex:none;
+  }
+  .brand-divider{
+    width:1px; height:34px; background:var(--line); flex:none;
+  }
+  .brand-tagline{
+    display:flex; flex-direction:column; gap:3px; line-height:1.15;
+  }
+  .tagline-main{
+    font-weight:700; font-size:0.86rem; letter-spacing:0.03em;
+    text-transform:uppercase; color:var(--brand-navy);
+  }
+  .tagline-main .accent{ color:var(--brand-blue); }
+  .tagline-sub{
+    font-size:0.76rem; font-weight:400; color:var(--brand-navy);
+    opacity:0.75;
   }
   .live-pill{
     display:inline-flex; align-items:center; gap:6px;
@@ -143,7 +161,7 @@
     0%,100%{transform:scale(0.88); opacity:0.55;}
     50%{transform:scale(1.06); opacity:1;}
   }
-  
+
   /* New Animation Layer Styles */
   .animation-layer {
     position: relative;
@@ -162,7 +180,7 @@
   }
   .air-blue {
     animation: flow-in 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
-    animation-delay: 1.2s; 
+    animation-delay: 1.2s;
   }
   @keyframes flow-in {
     0% { stroke-dashoffset: 30; opacity: 0; }
@@ -314,6 +332,8 @@
     .problem .wrap, .filt-grid, .move .wrap{grid-template-columns:1fr;}
     .steps{grid-template-columns:1fr;}
     .stat-row{flex-wrap:wrap; gap:24px;}
+    .brand-tagline{display:none;}
+    .brand-divider{display:none;}
   }
 </style>
 </head>
@@ -321,7 +341,12 @@
 <nav>
   <div class="wrap">
     <div class="brand">
-      <img class="brand-logo" src="assets/tagline_copy.png" alt="The Airflow logo">
+      <img class="brand-logo" src="assets/logo.png" alt="The Airflow logo">
+      <div class="brand-divider"></div>
+      <div class="brand-tagline">
+        <span class="tagline-main">Breathe <span class="accent">better</span> anywhere</span>
+        <span class="tagline-sub">Smart wearable face mask.</span>
+      </div>
     </div>
     <div style="display:flex; align-items:center; gap:18px;">
       <span class="live-pill"><span class="dot"></span>Live soon</span>
@@ -340,22 +365,22 @@
         <a class="btn-ghost" href="#how-it-works">See how it works</a>
       </div>
     </div>
-    
+
     <!-- Updated Breathe Stage with Animation Layer -->
     <div class="breathe-stage">
       <div class="ring r3"></div>
       <div class="ring r2"></div>
       <div class="ring r1"></div>
-      
+
       <div class="animation-layer">
         <svg viewBox="0 0 300 300" width="100%" height="100%">
-          
+
           <!-- Minimalist Person Profile -->
-          <path d="M 190 50 C 140 50 120 80 120 110 C 120 120 105 125 105 140 C 105 150 115 160 115 170 C 115 180 105 190 105 200 C 130 210 130 230 130 250 C 130 280 90 300 90 300 L 240 300 C 240 270 220 240 220 200 L 220 110 C 220 70 210 50 190 50 Z" 
+          <path d="M 190 50 C 140 50 120 80 120 110 C 120 120 105 125 105 140 C 105 150 115 160 115 170 C 115 180 105 190 105 200 C 130 210 130 230 130 250 C 130 280 90 300 90 300 L 240 300 C 240 270 220 240 220 200 L 220 110 C 220 70 210 50 190 50 Z"
                 fill="#113128" stroke="#1c473b" stroke-width="2" />
-          
+
           <!-- The Smart Mask (Using your --mint color) -->
-          <path d="M 98 135 C 88 155 88 185 98 205 C 108 210 125 210 130 200 C 135 180 135 155 125 135 C 115 130 105 130 98 135 Z" 
+          <path d="M 98 135 C 88 155 88 185 98 205 C 108 210 125 210 130 200 C 135 180 135 155 125 135 C 115 130 105 130 98 135 Z"
                 fill="#2FBF9F" opacity="0.85" />
           <path d="M 108 170 L 120 170" stroke="#0E211D" stroke-width="3" stroke-linecap="round" />
           <!-- Outside Polluted Air (Red/Amber matching your palette) -->
@@ -369,7 +394,7 @@
           <!-- Lung/Breath Indicator -->
           <circle cx="160" cy="200" r="18" fill="none" stroke="#2FBF9F" stroke-width="2" class="lung-pulse" />
           <circle cx="160" cy="200" r="8" fill="#2FBF9F" opacity="0.3" class="lung-pulse" />
-          
+
         </svg>
       </div>
       <div class="breath-label">Every breath, met with fresh air</div>
@@ -386,7 +411,7 @@
           <div class="num">200+</div>
           <div class="cap">unsafe air days a year in major metros </div>
         </div>
-  
+
       </div>
     </div>
     <div class="gauge-wrap">
